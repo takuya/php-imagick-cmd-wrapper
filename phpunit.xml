@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         bootstrap="vendor/autoload.php"
+
+
+
+>
+    <php>
+
+        <ini name="error_reporting" value="2303"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Units">
+            <directory suffix="Test.php">./tests/Units</directory>
+        </testsuite>
+
+        <!--        <testsuite name="Features">-->
+        <!--            <directory suffix="Test.php">./tests/Features</directory>-->
+        <!--        </testsuite>-->
+
+        <!--        <testsuite name="SampleCode">-->
+        <!--            <directory suffix="Test.php">./tests/SampleCode</directory>-->
+        <!--        </testsuite>-->
+    </testsuites>
+</phpunit>
