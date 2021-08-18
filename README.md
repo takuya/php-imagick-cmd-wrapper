@@ -4,7 +4,7 @@ image magick command wrapper for php
 ## Installing from github
 ```
 
-rep=https://github.com/takuya/php-Imagick-cmd-wrapper
+repo=https://github.com/takuya/php-Imagick-cmd-wrapper
 composer config repositories.takuya/php-Imagick-cmd-wrapper vcs $repo
 composer require takuya/php-Imagick-cmd-wrapper
 ```
