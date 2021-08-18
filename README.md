@@ -3,7 +3,9 @@ image magick command wrapper for php
 
 ## Installing from github
 ```
-composer config repositories.takuya/php-Imagick-cmd-wrapper vcs https://github.com/takuya/php-Imagick-cmd-wrapper
+
+rep=https://github.com/takuya/php-Imagick-cmd-wrapper
+composer config repositories.takuya/php-Imagick-cmd-wrapper vcs $repo
 composer require takuya/php-Imagick-cmd-wrapper
 ```
 
@@ -31,3 +33,15 @@ $ret = $convert
 $image_bin = $ret[1];
 file_put_contents('out.jpg',$image_bin)    
 ```
+
+## Developing notice 
+
+This project uses auto generated php code , by parsing `converet -h`.
+
+If you want to re-geneate class, type these command in CLI.
+```
+php bin/create-wrapper-template.php convert
+php bin/create-wrapper-template.php montage
+php bin/create-wrapper-template.php identify
+php bin/create-wrapper-template.php mogrify
+ ```
