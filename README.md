@@ -9,8 +9,8 @@ Image magick shell command wrapper for php
 
 #### Imagick class ( in ext-imagick) is not documented in precisely.
 
-  Think, Can you tell how to use `png:compression-filter` in ext-imagick ?. Perhaps you can't. 
-  But, there are very many `convert` samples in web. and we are trying to `system('convert a.jpg b.png')` calling with escaping shell arguments. What's a irritated.
+  Think, Can you tell how to use 'png:compression-filter' in ext-imagick ?. Perhaps you can't. 
+  But, there are very many 'convert' samples in web. and we are trying to `system('convert a.jpg b.png')` calling with escaping shell arguments. What's a irritated.
 
 
 So, we need `convert` command wrapper. 
