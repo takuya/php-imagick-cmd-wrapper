@@ -3,11 +3,11 @@ Image magick shell command wrapper for php
 
 ## Why using magick shell command from php?
 
-1. Occasionally, a `php-imagck` (ext-imagick) is not available. 
+#### Occasionally, a `php-imagck` (ext-imagick) is not available. 
 
   Some mod-php server are not supporting ext-imagck. but convert command is easy to install.
 
-2. Imagick class ( in ext-imagick) is not documented in precisely.
+#### Imagick class ( in ext-imagick) is not documented in precisely.
 
   Think, Can you tell how to use `png:compression-filter` in ext-imagick ?. Perhaps you can't. 
   But, there are very many `convert` samples in web. and we are trying to `system('convert a.jpg b.png')` calling with escaping shell arguments. What's a irritated.
