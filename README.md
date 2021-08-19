@@ -140,7 +140,7 @@ wsl --list -v
 cat /etc/debian_version
 10.10
 ```
-imagemagick from debian.wsk
+imagemagick from debian(wsl)
 ```
 convert -version
 Version: ImageMagick 6.9.10-23 Q16 x86_64 20190101 https://imagemagick.org
