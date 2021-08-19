@@ -130,11 +130,17 @@ composer run generate-class identify
 composer run generate-class mogrify
  ```
 
-I used these environment. 
+I used these environment. wsl1 debian. 
+```
+wsl --list -v
+  NAME      STATE           VERSION
+* Debian    Running         1
+```
 ```
 cat /etc/debian_version
 10.10
 ```
+imagemagick from debian.wsk
 ```
 convert -version
 Version: ImageMagick 6.9.10-23 Q16 x86_64 20190101 https://imagemagick.org
