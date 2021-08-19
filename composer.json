@@ -1,7 +1,7 @@
 {
   "name": "takuya/php-imagick-convert-wrapper",
   "type": "library",
-  "license": "GPL-3.0-Later",
+  "license": "GPL-3.0-later",
   "version": "1.0",
   "minimum-stability": "dev",
   "authors": [
