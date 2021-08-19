@@ -85,7 +85,7 @@ $convert = ;
 ```php
 $convert = ;
 $result = (new Convert())
-      ->setInputile( '-' )
+      ->setInputile( 'a.jpg' )
       ->setOutputFile( 'png:-' )
       ->execute();
 $png_binary = $result[1];
