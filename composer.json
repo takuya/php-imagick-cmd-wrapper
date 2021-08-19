@@ -1,5 +1,5 @@
 {
-  "name": "takuya/php-imagick-convert-wrapper",
+  "name": "takuya/php-imagick-cmd-wrapper",
   "type": "library",
   "license": "GPL-3.0-or-later",
   "version": "1.0",
