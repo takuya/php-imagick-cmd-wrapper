@@ -8,7 +8,7 @@ Image magick shell command wrapper for php
 
 Think, Can you tell How to use `png:compression-filter` in ext-imagick. Perhaps you can`t. 
 
-But `convert` command has very many samples in web forum. and trying to `system('convert a.jpg b.png')` calling with escaping shell arguments. What's a irritated.
+But, there are very many  `convert` samples in web. and we are trying to `system('convert a.jpg b.png')` calling with escaping shell arguments. What's a irritated.
 
 
 So, we need `convert` command wrapper. 
@@ -28,9 +28,9 @@ $width = 500;
 // convert
 $convert = new Convert();
 $ret = $convert
+      ->setInputFile( $f_in )
       ->unsharp('10x5+0.7+0')
       ->sample($width)
-      ->setInputFile( $f_in )
       ->pointsize(30)
       ->fill('blue')
       ->strokewidth(1)
@@ -47,7 +47,7 @@ file_put_contents('out.jpg',$image_bin)
 
 Before Use, You should know that OPTIONS Ordering is VERY IMPORTANT.
 
-Because the `convert` command is Very NAIVE for option order.
+The `convert` command is Very NAIVE for option order.
 
 We must care about Arguments Ordering.
 
