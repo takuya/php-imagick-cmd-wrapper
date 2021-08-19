@@ -129,3 +129,17 @@ composer run generate-class montage
 composer run generate-class identify
 composer run generate-class mogrify
  ```
+
+I used these environment. 
+```
+cat /etc/debian_version
+10.10
+```
+```
+convert -version
+Version: ImageMagick 6.9.10-23 Q16 x86_64 20190101 https://imagemagick.org
+Copyright: © 1999-2019 ImageMagick Studio LLC
+License: https://imagemagick.org/script/license.php
+Features: Cipher DPC Modules OpenMP
+Delegates (built-in): bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png tiff webp wmf x xml zlib
+```
