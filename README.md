@@ -116,7 +116,7 @@ Options(methods) are auto generated from Help doc from 'convert -h'.
 
 So, in Some IDE, Auto completions will not work fine.
 
-If it happens then , Add path `src/generated/` to your Project search PATH.
+If it happens then add a path `src/generated/` to your Project search PATH.
 
 ## Developing notice.
 
