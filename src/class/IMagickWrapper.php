@@ -1,5 +1,6 @@
 <?php
 
+
 namespace SystemUtil;
 
 trait IMagickWrapper {
@@ -11,12 +12,13 @@ trait IMagickWrapper {
    * @var string
    */
   protected $output_file = '-';
+  
   /**
    * @param string $file_name
    * @return $this
    */
-  public function setInputFileList ( array $file_names) {
-    $this->input_files = $file_names;
+  public function setInputFileList ( array $file_names ) {
+    $this->opts[] = $file_names;
     return $this;
   }
   
@@ -25,15 +27,16 @@ trait IMagickWrapper {
    * @return $this
    */
   public function setInputFile ( $file_name = '-' ) {
-    $this->input_files = [$file_name];
+    static::addInputFile($file_name);
     return $this;
   }
+  
   /**
    * @param string $file_name
    * @return $this
    */
   public function addInputFile ( $file_name = '-' ) {
-    $this->input_files[] = $file_name;
+    $this->opts[] = [$file_name];
     return $this;
   }
   
@@ -42,7 +45,7 @@ trait IMagickWrapper {
    * @return $this
    */
   public function setOutputFile ( $file_name = 'jpeg:-' ) {
-    $this->output_file = $file_name;
+    $this->opts[] = [$file_name];
     return $this;
   }
   
@@ -50,10 +53,7 @@ trait IMagickWrapper {
    * @return array
    */
   public function execute () {
-    $opts = array_merge( [], $this->input_files, ...$this->opts );
-    $opts = array_merge( $opts, [$this->output_file] );
-    $this->opts = $opts;
+    $this->opts = array_merge( [], ...$this->opts );;
     return parent::execute();
   }
-  
 }

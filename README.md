@@ -1,21 +1,31 @@
 # php-Imagick-cmd-wrapper
-image magick command wrapper for php
+Image magick shell command wrapper for php
 
-## Installing from github
+## Why using magick shell command from php?
+
+Occasionally, a `php-imagck` (ext-imagick) is not available. 
+
+Imagick class ( in ext-imagick) is not documented in precisely.
+
+Think, Can you tell How to use `png:compression-filter` in ext-imagick. Perhaps you can`t. 
+
+But `convert` command has very many samples in web forum. and trying to `system('convert a.jpg b.png')` calling with escaping shell arguments. What's a irritated.
+
+
+So, we need `convert` command wrapper. 
+
+## Installing from GitHub
 ```
-
-repo=https://github.com/takuya/php-Imagick-cmd-wrapper
-composer config repositories.takuya/php-Imagick-cmd-wrapper vcs $repo
-composer require takuya/php-Imagick-cmd-wrapper
+repo=git@github.com:takuya/php-imagick-cmd-wrapper.git
+composer config repositories.takuya/php-imagick-cmd-wrapper.git vcs $repo
+composer require takuya/php-imagick-cmd-wrapper.git
 ```
 
 ## Usage Sample 
 
-
 ```php
 $f_in = 'DkzpJ1lUUAA84KP.jpg';
 $width = 500;
-
 // convert
 $convert = new Convert();
 $ret = $convert
@@ -34,14 +44,87 @@ $image_bin = $ret[1];
 file_put_contents('out.jpg',$image_bin)    
 ```
 
-## Developing notice 
+## Important Notice! Call Method Ordering.
 
-This project uses auto generated php code , by parsing `converet -h`.
+Before Use, You should know that OPTIONS Ordering is VERY IMPORTANT.
 
-If you want to re-geneate class, type these command in CLI.
+Because the `convert` command is Very NAIVE for option order.
+
+We must care about Arguments Ordering.
+
+#### Sample1 ( vain , not working. )
+```php
+(new Identify())
+    ->setInputFile('a.jpg')
+    ->format('[%w,%h]')
+->execute();
 ```
-php bin/create-wrapper-template.php convert
-php bin/create-wrapper-template.php montage
-php bin/create-wrapper-template.php identify
-php bin/create-wrapper-template.php mogrify
+
+This result in ` identify a.jpg -format '[%w,%w]'` , but no work.
+#### Sample2 ( works fine. )
+```php
+(new Identify())
+    ->setInputFile('a.jpg')
+    ->format('[%w,%h]')
+->execute();
+```
+This result in ` identify  -format '[%w,%w]' a.jpg ` , it will work fine.
+
+### More Sample Usage
+
+#### Convert JPEG to PNG.
+```php
+$convert = ;
+(new Convert())
+      ->setInputile( 'a.jpg' )
+      ->setOutputFile( 'b.png' )
+      ->execute();
+```
+#### Using STDOUT - converting jpeg to png  
+```php
+$convert = ;
+$result = (new Convert())
+      ->setInputile( '-' )
+      ->setOutputFile( 'png:-' )
+      ->execute();
+$png_binary = $result[1];
+```
+####  Structure of return value 
+command result is array of 3 entries
+```php
+$result = [
+  '0' => ' int / exit status code' ,
+  '1' => ' string / stdout from command' ,
+  '2' => ' int / stderr from command' ,
+];
+ ```
+### Resize(sampling Algorithm) and UnSharp and Normalization
+```php
+$ret = $convert
+      ->setInputFile( $f_in )
+      ->sample($width)
+      ->unsharp('10x5+0.7+0')
+      ->normalize()
+      ->setOutputFile( 'jpeg:-' )
+      ->execute();
+```
+
+### IDE Auto Completion.
+
+Some options are auto generated from Help doc from 'convert -h'.
+
+So, IDE AutoCompletion will not works fine.
+
+If it happens then , Add path `src/generated/` to your Project Search PATH.
+
+## Developing notice.
+
+This project uses auto generated php code, parsing `converet -h`.
+
+If you want to re-geneate class, execute these command in CLI.
+```
+composer run generate-class convert
+composer run generate-class montage
+composer run generate-class identify
+composer run generate-class mogrify
  ```

@@ -1,6 +1,6 @@
 <?php
 
-namespace Units\CommandWrap;
+namespace Tests\Units\CommandWrap;
 
 use Tests\TestCase;
 use SystemUtil\Convert;
@@ -13,8 +13,8 @@ class ConvertCommandTest extends TestCase {
     $f_out = mktemp_file( 'test.jpg' );
     // convert
     $convert = new Convert();
-    $convert->resize( $width )
-            ->setInputFile( $f_in )
+    $convert->setInputFile( $f_in )
+            ->resize( $width )
             ->setOutputFile( $f_out )
             ->execute();
     // assertion
@@ -29,11 +29,12 @@ class ConvertCommandTest extends TestCase {
     $f_out = mktemp_file( 'test.jpg' );
     // convert
     $convert = new Convert();
-    $convert->resize( $width )
-            ->rotate( $rotate )
-            ->setInputFile( $f_in )
-            ->setOutputFile( $f_out )
-            ->execute();
+    $convert
+      ->setInputFile( $f_in )
+      ->resize( $width )
+      ->rotate( $rotate )
+      ->setOutputFile( $f_out )
+      ->execute();
     // assertion
     $this->assertFileExists( $f_out );
     $this->assertEquals( $width, ( getimagesize( $f_out ) )[1] );

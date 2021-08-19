@@ -12,16 +12,17 @@
     }
   ],
   "scripts": {
-    "generate-class": "php bin/create-class.php"
+    "generate-class": "php bin/create-wrapper-template.php"
   },
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "sort-packages": true
   },
+
   "autoload": {
     "psr-4": {
-      "SystemUtil\\": "src/"
+      "SystemUtil\\": "src/class"
     }
   },
   "autoload-dev": {
@@ -29,7 +30,7 @@
       "Helpers/helpers.php"
     ],
     "psr-4": {
-      "Tests\\": "tests/"
+      "Tests\\": "Tests/"
     }
   },
   "require": {

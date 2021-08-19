@@ -1,6 +1,6 @@
 <?php
 
-namespace Units\CommandWrap;
+namespace Tests\Units\CommandWrap;
 
 use Tests\TestCase;
 use SystemUtil\Montage;

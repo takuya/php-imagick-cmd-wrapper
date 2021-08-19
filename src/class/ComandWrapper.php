@@ -22,14 +22,14 @@ class ComandWrapper {
     return $this;
   }
   public function execute(){
-    $ret = self::exec( ...$this->opts);
+    $ret = static::exec( ...$this->opts);
     return $ret;
   }
   protected static function exec(...$args): array {
     $args = static::genArgs($args);
     $proc = new Process( $args );
     $proc->run();
-    //var_dump(join(' ', $proc->getCommandLine()));
+    //dd(join(' ', $proc->getCommandLine()));
     return [$proc->getExitCode(), $proc->getOutput(), $proc->getErrorOutput()];
   }
   protected static function genArgs($args): array {
