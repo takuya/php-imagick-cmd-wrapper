@@ -3,9 +3,8 @@ Image magick shell command wrapper for php
 
 ## Why using magick shell command from php?
 
-Occasionally, a `php-imagck` (ext-imagick) is not available. 
-
-Imagick class ( in ext-imagick) is not documented in precisely.
+1. Occasionally, a `php-imagck` (ext-imagick) is not available. 
+2. Imagick class ( in ext-imagick) is not documented in precisely.
 
 Think, Can you tell How to use `png:compression-filter` in ext-imagick. Perhaps you can`t. 
 
@@ -17,7 +16,7 @@ So, we need `convert` command wrapper.
 ## Installing from GitHub
 ```
 repo=git@github.com:takuya/php-imagick-cmd-wrapper.git
-composer config repositories.takuya/php-imagick-cmd-wrapper.git vcs $repo
+composer config repositories.takuya/php-imagick-cmd-wrapper vcs $repo
 composer require takuya/php-imagick-cmd-wrapper.git
 ```
 
