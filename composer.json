@@ -4,6 +4,7 @@
   "license": "GPL-3.0-or-later",
   "version": "1.0",
   "minimum-stability": "dev",
+  "prefer-stable": true,
   "authors": [
     {
       "name": "takuya",
