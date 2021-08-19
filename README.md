@@ -112,11 +112,11 @@ $ret = $convert
 
 ### IDE Auto Completion.
 
-Some options are auto generated from Help doc from 'convert -h'.
+Options(methods) are auto generated from Help doc from 'convert -h'.
 
-So, IDE AutoCompletion will not works fine.
+So, in Some IDE, Auto completions will not work fine.
 
-If it happens then , Add path `src/generated/` to your Project Search PATH.
+If it happens then , Add path `src/generated/` to your Project search PATH.
 
 ## Developing notice.
 
