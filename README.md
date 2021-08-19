@@ -19,7 +19,7 @@ So, we need `convert` command wrapper.
 ```
 repo=git@github.com:takuya/php-imagick-cmd-wrapper.git
 composer config repositories.takuya/php-imagick-cmd-wrapper vcs $repo
-composer require takuya/php-imagick-cmd-wrapper.git
+composer require takuya/php-imagick-cmd-wrapper
 ```
 
 ## Usage Sample 
