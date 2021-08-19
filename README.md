@@ -122,7 +122,7 @@ If it happens then add a path `src/generated/` to your Project search PATH.
 
 This project uses auto generated php code, parsing `converet -h`.
 
-If you want to re-geneate class, execute these command in CLI.
+If you want to re-generate class, execute these command in CLI.
 ```
 composer run generate-class convert
 composer run generate-class montage
