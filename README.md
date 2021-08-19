@@ -96,7 +96,7 @@ command result is array of 3 entries
 $result = [
   '0' => ' int / exit status code' ,
   '1' => ' string / stdout from command' ,
-  '2' => ' int / stderr from command' ,
+  '2' => ' string / stderr from command' ,
 ];
  ```
 ### Resize(sampling Algorithm) and UnSharp and Normalization
