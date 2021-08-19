@@ -3,7 +3,7 @@ Image magick shell command wrapper for php
 
 ## Why using magick shell command from php?
 
-#### Occasionally, a `php-imagck` (ext-imagick) is not available. 
+#### Occasionally, a php-imagick (ext-imagick) is not available. 
 
   Some mod-php server are not supporting ext-imagck. but convert command is easy to install.
 
