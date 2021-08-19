@@ -3,6 +3,7 @@
   "type": "library",
   "license": "GPL-3.0-or-later",
   "version": "1.0",
+  "keywords": ["imagick","convert","shell","image-magick"],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "authors": [
