@@ -69,7 +69,7 @@ We must care about Arguments Ordering.
 ->execute();
 ```
 
-This result in ` identify a.jpg -format '[%w,%w]'` , but no work.
+This result in ` identify a.jpg -format '[%w,%h]'` , but no work.
 #### Sample2 ( works fine. )
 ```php
 (new Identify())
@@ -77,7 +77,7 @@ This result in ` identify a.jpg -format '[%w,%w]'` , but no work.
     ->format('[%w,%h]')
 ->execute();
 ```
-This result in ` identify  -format '[%w,%w]' a.jpg ` , it will work fine.
+This result in ` identify  -format '[%w,%h]' a.jpg ` , it will work fine.
 
 ### More Sample Usage
 
