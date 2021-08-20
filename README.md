@@ -89,11 +89,20 @@ $convert = ;
       ->setOutputFile( 'b.png' )
       ->execute();
 ```
-#### Using STDOUT - converting jpeg to png  
+#### Using STDOUT - converting jpeg to png
 ```php
 $convert = ;
 $result = (new Convert())
       ->setInputile( 'a.jpg' )
+      ->setOutputFile( 'png:-' )
+      ->execute();
+$png_binary = $result[1];
+```
+#### Using STDIN - converting jpeg to png
+```php
+$convert = ;
+$result = (new Convert())
+      ->setInputile( '-', file_get_contents('a.jpg') )
       ->setOutputFile( 'png:-' )
       ->execute();
 $png_binary = $result[1];
