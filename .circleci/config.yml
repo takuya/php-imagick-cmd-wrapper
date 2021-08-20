@@ -73,6 +73,7 @@ jobs:
             apt-get update;
             apt-get install -y --no-install-recommends git vim-nox sudo;
       - run:
+          ## docker-php-ext-install、はphp Dockerイメージ添付のextension install コマンド。
           shell: /bin/bash
           command: |
             apt-get -y install libzip-dev unzip;
