@@ -24,7 +24,7 @@ class ComandWrapper {
       }
     }
     
-    if (static::$command_exists==false){
+    if (static::$command_exists===false){
       throw  new \RuntimeException('command not found; apt install imagemagick');
     }
   }
