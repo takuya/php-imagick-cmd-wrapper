@@ -3,16 +3,11 @@
 
 namespace SystemUtil;
 
+/**
+ *
+ */
 trait IMagickWrapper {
-  /**
-   * @var array
-   */
-  protected $input_files = [];
-  /**
-   * @var string
-   */
-  protected $output_file = '-';
-  
+
   /**
    * @param string $file_name
    * @return $this
@@ -21,13 +16,17 @@ trait IMagickWrapper {
     $this->opts[] = $file_names;
     return $this;
   }
-  
   /**
    * @param string $file_name
+   * @param string $bin       image binary string, pass to STDIN. With this arg, $file_name must be '-'.
    * @return $this
    */
-  public function setInputFile ( $file_name = '-' ) {
-    static::addInputFile($file_name);
+  public function setInputFile ( string $file_name = '-', $bin=null ) {
+    if (!is_null($bin) && $file_name != '-'){
+      throw  new \InvalidArgumentException( 'To use STDIN , pass "-" as file_name' );
+    }
+    $this->input_stream = $bin;
+    $this->addInputFile($file_name);
     return $this;
   }
   
