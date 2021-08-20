@@ -1,5 +1,13 @@
-# php-Imagick-cmd-wrapper
+# php-imagick-cmd-wrapper
+![<CircleciTest>](https://circleci.com/gh/takuya/php-imagick-cmd-wrapper.svg?style=svg)
+
 Image magick shell command wrapper for php
+
+
+## requirements
+```
+apt install imagemagick
+```
 
 ## Why using magick shell command from php?
 
@@ -148,4 +156,13 @@ Copyright: © 1999-2019 ImageMagick Studio LLC
 License: https://imagemagick.org/script/license.php
 Features: Cipher DPC Modules OpenMP
 Delegates (built-in): bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png tiff webp wmf x xml zlib
+```
+
+## 
+## test results.
+![<CircleciTest>](https://circleci.com/gh/takuya/php-imagick-cmd-wrapper.svg?style=svg)
+## testing
+```
+composer install 
+./vendor/bin/phpunit
 ```
