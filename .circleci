@@ -1,0 +1,96 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+workflows:
+  version: 2
+  test-php-versions:
+    jobs:
+      - test-8.0:
+          filters:
+            branches:
+              only:
+                - master
+                - pre-release
+      - test-7.4:
+          filters:
+            branches:
+              only:
+                - master
+                - pre-release
+      - test-7.3:
+          filters:
+            branches:
+              only:
+                - master
+                - pre-release
+jobs:
+  test-8.0:
+    docker:
+      ## circleCI はphpのベースがUbuntuらしい。
+      - image: circleci/php:8-cli
+    steps:
+      - run:
+          shell: /bin/bash
+          command:
+            apt-get update;
+            apt-get install -y --no-install-recommends imagemagick;
+      - checkout
+      - run:
+          shell: /bin/bash
+          command: |
+            cd ~/project  &&
+            composer install -n --prefer-dist &&
+            /usr/local/bin/php ./vendor/bin/phpunit --testsuite Units &&
+            echo done;
+  test-7.4:
+    docker:
+      # Specify the version you desire here
+      - image: circleci/php:7.4.3-cli
+    steps:
+      - run:
+          shell: /bin/bash
+          command:
+            apt-get update;
+            apt-get install -y --no-install-recommends imagemagick;
+      - checkout
+      - run:
+          shell: /bin/bash
+          command: |
+            cd ~/project  &&
+            composer install -n --prefer-dist &&
+            /usr/local/bin/php ./vendor/bin/phpunit --testsuite Units &&
+            echo done;
+  test-7.3:
+    docker:
+      # Specify the version you desire here
+      - image: php:7.3-cli
+    steps:
+      - run:
+          shell: /bin/bash
+          command:
+            apt-get update;
+            apt-get install -y --no-install-recommends git vim-nox sudo;
+      - run:
+          shell: /bin/bash
+          command: |
+            apt-get -y install libzip-dev unzip;
+            docker-php-ext-install zip;
+            docker-php-ext-enable zip;
+      - checkout
+      - run:
+          shell: /bin/bash
+          command: |
+            mkdir -p /var/www/; cp -r  ~/project /var/www/project;
+            chown -R www-data:www-data /var/www/; chmod -R g+rwx /var/www/;
+            cd /var/www/project;
+            sudo -u www-data php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
+            sudo -u www-data php composer-setup.php
+            sudo -u www-data php composer.phar install -n --prefer-dist
+      - run:
+          shell: /bin/bash
+          command: |
+            cd /var/www/project &&
+            sudo -u www-data php ./vendor/bin/phpunit --testsuite Units &&
+            echo end;
