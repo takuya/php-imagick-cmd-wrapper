@@ -34,8 +34,8 @@ jobs:
       - run:
           shell: /bin/bash
           command:
-            apt-get update;
-            apt-get install -y --no-install-recommends imagemagick;
+            sudo apt-get update;
+            sudo apt-get install -y --no-install-recommends imagemagick;
       - checkout
       - run:
           shell: /bin/bash
@@ -52,8 +52,8 @@ jobs:
       - run:
           shell: /bin/bash
           command:
-            apt-get update;
-            apt-get install -y --no-install-recommends imagemagick;
+            sudo apt-get update;
+            sudo apt-get install -y --no-install-recommends imagemagick;
       - checkout
       - run:
           shell: /bin/bash
