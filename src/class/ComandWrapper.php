@@ -6,10 +6,27 @@ namespace SystemUtil;
 class ComandWrapper {
 
   public static $command_path;
+  protected static $command_exists;
   protected $input_stream = null;
 
   protected $opts = [];
   public function __construct () {
+    $this->is_cmd_exists();
+    
+  }
+  protected function is_cmd_exists(){
+    
+    if ( is_null(static::$command_exists)){
+      $proc = new Process( ['which',static::$command_path] );
+      $proc->run();
+      if (!$proc->isSuccessful()){
+        static::$command_exists = false;
+      }
+    }
+    
+    if (static::$command_exists==false){
+      throw  new \RuntimeException('command not found; apt install imagemagick');
+    }
   }
   
   protected function addOpt( ...$opt ) {
