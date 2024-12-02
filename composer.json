@@ -2,7 +2,7 @@
   "name": "takuya/php-imagick-cmd-wrapper",
   "type": "library",
   "license": "GPL-3.0-or-later",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "image magick command line call from php",
   "keywords": ["imagick","convert","shell","image-magick"],
   "minimum-stability": "dev",
