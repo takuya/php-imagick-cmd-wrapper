@@ -33,7 +33,7 @@
     }
   },
   "require": {
-    "php": ">=7.2",
+    "php": ">=8.0",
     "takuya/php-proc_open-wrapper": "^0.4"
   },
   "require-dev": {
