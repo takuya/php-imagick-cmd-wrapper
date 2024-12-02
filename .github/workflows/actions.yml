@@ -49,6 +49,7 @@ jobs:
           composer require takuya/php-imagick-cmd-wrapper
           cat <<'EOS' > sample.php
           <?php
+          use SystemUtil\Convert;
           require_once 'vendor/autoload.php';
           $convert = new Convert();
           EOS
