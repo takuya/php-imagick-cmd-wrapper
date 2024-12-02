@@ -72,12 +72,12 @@ class MontageCommandTest extends TestCase {
   
     foreach ( $results as $k=>$v ) {
     
-      $f_out = mktemp_file( 'test.jpg' );
+      $f_out = mktempfile('test.jpg' );
       file_put_contents($f_out, $v);
       $results[$k]  = $f_out;
     }
     $montage = new Montage();
-    $f_out = mktemp_file('montage.jpg');
+    $f_out = mktempfile('montage.jpg');
     $montage
       ->setInputFileList(array_values($results))
       ->tile('2x2')

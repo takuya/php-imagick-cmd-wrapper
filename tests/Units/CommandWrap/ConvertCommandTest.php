@@ -10,7 +10,7 @@ class ConvertCommandTest extends TestCase {
   public function test_convert_resize_200 () {
     $f_in = __DIR__.'/../../sample-data/DkzpJ1lUUAA84KP.jpg';
     $width = 200;
-    $f_out = mktemp_file( 'test.jpg' );
+    $f_out = mktempfile('test.jpg' );
     // convert
     $convert = new Convert();
     $convert->setInputFile( $f_in )
@@ -26,7 +26,7 @@ class ConvertCommandTest extends TestCase {
     $f_in = __DIR__.'/../../sample-data/DkzpJ1lUUAA84KP.jpg';
     $width = 200;
     $rotate = 90;
-    $f_out = mktemp_file( 'test.jpg' );
+    $f_out = mktempfile('test.jpg' );
     // convert
     $convert = new Convert();
     $convert
@@ -55,7 +55,7 @@ class ConvertCommandTest extends TestCase {
   
   public function test_add_string_to_image(){
     $f_in = __DIR__.'/../../sample-data/DkzpJ1lUUAA84KP.jpg';
-    $f_out = mktemp_file('sample.jpg');
+    $f_out = mktempfile('sample.jpg');
     $width = 500;
     // convert
     $convert = new Convert();
@@ -139,12 +139,12 @@ class ConvertCommandTest extends TestCase {
     
     foreach ( $results as $k=>$v ) {
   
-      $f_out = mktemp_file( 'test.jpg' );
+      $f_out = mktempfile('test.jpg' );
       file_put_contents($f_out, $v);
       $results[$k]  = $f_out;
     }
     $convert = new Convert();
-    $tmp = mktemp_file('temp.jpg');
+    $tmp = mktempfile('temp.jpg');
     $ret = $convert->setInputFileList(array_values($results))
       ->append('+')
       ->setOutputFile($tmp)

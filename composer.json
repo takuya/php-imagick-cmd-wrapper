@@ -28,9 +28,6 @@
     }
   },
   "autoload-dev": {
-    "files": [
-      "Helpers/helpers.php"
-    ],
     "psr-4": {
       "Tests\\": "tests/"
     }
@@ -43,6 +40,7 @@
     "illuminate/support": "^8.0",
     "larapack/dd": "^1.1",
     "nette/php-generator": "v3.5.x-dev",
-    "phpunit/phpunit": "9.5.*"
+    "phpunit/phpunit": "9.5.*",
+    "takuya/php-mktempfile": "^1.1"
   }
 }

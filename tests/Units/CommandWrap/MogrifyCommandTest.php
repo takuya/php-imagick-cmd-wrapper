@@ -7,7 +7,7 @@ use SystemUtil\Mogrify;
 
 class MogrifyCommandTest  extends TestCase {
   public function test_mogrify_resize_200 () {
-    $tmp_file = mktemp_file( 'test.jpg' );
+    $tmp_file = mktempfile('test.jpg' );
     copy(__DIR__.'/../../sample-data/DkzpJ1lUUAA84KP.jpg',$tmp_file);
     
     $mogrify = new Mogrify();
