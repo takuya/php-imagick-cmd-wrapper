@@ -39,6 +39,20 @@ class ConvertCommandTest extends TestCase {
     $this->assertFileExists( $f_out );
     $this->assertEquals( $width, ( getimagesize( $f_out ) )[1] );
   }
+  public function test_list_fonts_option(){
+    $convert = new Convert();
+    $str = $convert->list('font')->execute()[1];
+    $ret = preg_grep('/Font:.+gothic.+/i',preg_split("/\n/",$str));
+    $this->assertGreaterThan(0,sizeof($ret));
+  }
+  public function getSampleFontName(){
+    $str = (new Convert())->list('font')->execute()[1];
+    preg_match_all('/Font: (.+gothic.+)/i',$str,$m);
+    $fonts = $m[1];
+    return $fonts[intval(sizeof($fonts)/2)];
+    
+  }
+  
   public function test_add_string_to_image(){
     $f_in = __DIR__.'/../../sample-data/DkzpJ1lUUAA84KP.jpg';
     $f_out = mktemp_file('sample.jpg');
@@ -51,7 +65,7 @@ class ConvertCommandTest extends TestCase {
       ->fill('blue')
       ->strokewidth(1)
       ->stroke('gray80')
-      ->font('DejaVu-Sans')
+      ->font($this->getSampleFontName())
       ->annotate('+10+100','2021-08-18')
       ->setOutputFile($f_out)
       ->execute();
