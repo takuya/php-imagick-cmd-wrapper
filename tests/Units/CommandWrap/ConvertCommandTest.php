@@ -47,8 +47,7 @@ class ConvertCommandTest extends TestCase {
   }
   public function getSampleFontName(){
     $str = (new Convert())->list('font')->execute()[1];
-    preg_match_all('/Font: (.+gothic.+)/i',$str,$m);
-    dd($str);
+    preg_match_all('/Font: (.+mono.+)/i',$str,$m);
     $fonts = $m[1];
     return $fonts[intval(sizeof($fonts)/2)];
     
