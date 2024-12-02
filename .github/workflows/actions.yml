@@ -50,7 +50,7 @@ jobs:
           cat <<'EOS' > sample.php
           <?php
           require_once 'vendor/autoload.php';
-          
+          $convert = new Convert();
           EOS
           cat sample.php
           php sample.php

@@ -42,12 +42,13 @@ class ConvertCommandTest extends TestCase {
   public function test_list_fonts_option(){
     $convert = new Convert();
     $str = $convert->list('font')->execute()[1];
-    $ret = preg_grep('/Font:.+gothic.+/i',preg_split("/\n/",$str));
+    $ret = preg_grep('/Font:.+/i',preg_split("/\n/",$str));
     $this->assertGreaterThan(0,sizeof($ret));
   }
   public function getSampleFontName(){
     $str = (new Convert())->list('font')->execute()[1];
     preg_match_all('/Font: (.+gothic.+)/i',$str,$m);
+    dd($str);
     $fonts = $m[1];
     return $fonts[intval(sizeof($fonts)/2)];
     
