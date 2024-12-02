@@ -3,6 +3,8 @@
 namespace SystemUtil;
 
 
+use Takuya\ProcOpen\ProcOpen;
+
 class ComandWrapper {
 
   public static $command_path;
@@ -17,9 +19,10 @@ class ComandWrapper {
   protected function is_cmd_exists(){
     
     if ( is_null(static::$command_exists)){
-      $proc = new Process( ['which',static::$command_path] );
-      $proc->run();
-      if (!$proc->isSuccessful()){
+      $proc = new ProcOpen( ['which',static::$command_path] );
+      $proc->start();
+      $proc->getOutput();
+      if (!$proc->info->exitcode==0){
         static::$command_exists = false;
       }
     }
@@ -46,11 +49,10 @@ class ComandWrapper {
    */
   protected function exec( ...$args): array {
     $args = static::genArgs($args);
-    $proc = new Process( $args );
+    $proc = new ProcOpen($args);
     $proc->setInput(!empty($this->input_stream)?$this->input_stream:null);
-    $proc->run();
-    //dd(join(' ', $proc->getCommandLine()));
-    return [$proc->getExitCode(), $proc->getOutput(), $proc->getErrorOutput()];
+    $proc->start();
+    return [1=>$proc->getOutput(), 2=>$proc->getErrout(),0=>$proc->info->exitcode,];
   }
   protected function genArgs($args): array {
     $cmd = preg_split('/\s+/', static::$command_path);
