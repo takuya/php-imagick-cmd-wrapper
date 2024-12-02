@@ -1,5 +1,5 @@
 # php-imagick-cmd-wrapper
-![<CircleciTest>](https://circleci.com/gh/takuya/php-imagick-cmd-wrapper.svg?style=svg)
+![](https://github.com/takuya/php-imagick-cmd-wrapper//workflows/main/badge.svg)
 
 Image magick shell command wrapper for php
 
@@ -169,7 +169,7 @@ Delegates (built-in): bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg
 
 ## 
 ## test results.
-![<CircleciTest>](https://circleci.com/gh/takuya/php-imagick-cmd-wrapper.svg?style=svg)
+![](https://github.com/takuya/php-imagick-cmd-wrapper//workflows/main/badge.svg)
 ## testing
 ```
 composer install 
