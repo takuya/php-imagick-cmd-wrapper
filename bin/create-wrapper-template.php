@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-use SystemUtil\ComandWrapper;
+use SystemUtil\CommandWrapper;
 use Nette\PhpGenerator\ClassType;
 use CodeGen\ImageMagickHelpParser;
 

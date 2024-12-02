@@ -5,7 +5,7 @@ namespace SystemUtil;
 
 use Takuya\ProcOpen\ProcOpen;
 
-class ComandWrapper {
+class CommandWrapper {
 
   public static $command_path;
   protected static $command_exists;
