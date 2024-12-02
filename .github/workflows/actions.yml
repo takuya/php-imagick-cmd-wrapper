@@ -21,7 +21,7 @@ jobs:
         shell : bash
         run : |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends imagemagick
+          sudo apt-get install -y --no-install-recommends imagemagick fonts-ipafont-gothic
       - name : composer install
         shell: bash
         run : |
@@ -46,17 +46,11 @@ jobs:
         shell: bash
         run: |
           php -v
-          composer require takuya/php-proc_open-wrapper
+          composer require takuya/php-imagick-cmd-wrapper
           cat <<'EOS' > sample.php
           <?php
           require_once 'vendor/autoload.php';
-          use Takuya\ProcOpen\ProcOpen;
           
-          $p = new ProcOpen( ['php','-v'] );
-          $p->start();
-          $p->wait();
-          
-          echo $output = stream_get_contents($p->getFd(1));
           EOS
           cat sample.php
           php sample.php
