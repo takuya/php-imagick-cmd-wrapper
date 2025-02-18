@@ -56,7 +56,6 @@ class ConvertCommandTest extends TestCase {
   public function test_add_string_to_image(){
     $f_in = __DIR__.'/../../sample-data/DkzpJ1lUUAA84KP.jpg';
     $f_out = mktempfile('sample.jpg');
-    $width = 500;
     // convert
     $convert = new Convert();
     $ret = $convert->setInputFile($f_in)
@@ -72,8 +71,9 @@ class ConvertCommandTest extends TestCase {
   
     $this->assertEquals(0, $ret[0]);
     $this->assertEmpty($ret[1]);
-    $this->assertEmpty($ret[2]);
-    
+      $this->assertGreaterThan(30*1024,filesize($f_out));
+      $this->assertLessThan(40*1024,filesize($f_out));
+
   }
   
   public function test_resize_sampling_unsharp(){

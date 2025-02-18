@@ -18,18 +18,16 @@ class CommandWrapper {
   }
   protected function is_cmd_exists(){
     
-    if ( is_null(static::$command_exists)){
-      $proc = new ProcOpen( ['which',static::$command_path] );
+    if ( is_null(static::$command_exists)) {
+      $proc = new ProcOpen(['which', static::$command_path]);
       $proc->start();
       $proc->getOutput();
-      if (!$proc->info->exitcode==0){
-        static::$command_exists = false;
+      static::$command_exists = $proc->info->exitcode == 0;
+      if (static::$command_exists === false) {
+        throw  new \RuntimeException('command not found; apt install imagemagick');
       }
     }
-    
-    if (static::$command_exists===false){
-      throw  new \RuntimeException('command not found; apt install imagemagick');
-    }
+    return static::$command_exists;
   }
   
   protected function addOpt( ...$opt ) {
