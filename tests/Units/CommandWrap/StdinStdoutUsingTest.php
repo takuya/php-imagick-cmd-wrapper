@@ -39,6 +39,7 @@ class StdinStdoutUsingTest extends  TestCase {
       ->format('%w')
       ->setInputFile('-', $result[1])
       ->execute();
+    dump($ret);
     $this->assertEquals(0, $ret[0]);
     $this->assertEquals(200, $ret[1]);
     //

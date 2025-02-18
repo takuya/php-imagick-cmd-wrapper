@@ -42,6 +42,11 @@ jobs:
   run-composer-install:
     runs-on: ubuntu-latest
     steps:
+      - name : apt install
+        shell : bash
+        run : |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends imagemagick fonts-ipafont-gothic
       - name:  installation
         shell: bash
         run: |
